@@ -11,11 +11,15 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/content": "^3.14.0",
+    "@comark/cms": "https://pkg.pr.new/comarkdown/comark-cms/@comark/cms@ad36451",
+    "@comark/vue": "^0.3.1",
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/fonts": "^0.14.0",
     "@nuxtjs/html-validator": "^2.1.0",
+    "@shikijs/themes": "^4.1.0",
+    "comark": "^0.3.2",
     "nuxt": "^4.4.4",
+    "shiki": "^4.1.0",
     "temporal-polyfill": "^0.3.2",
     "vue": "^3.5.34"
   },

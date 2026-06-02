@@ -3,8 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
-    'nuxt-svgo',
-    '@nuxt/content',
+    'nuxt-svgo'
   ],
   features: {
     inlineStyles: false
@@ -27,13 +26,6 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
-  content: {
-    database: {
-      type: 'sqlite',
-      filename: ':memory:',
-    },
-    experimental: { sqliteConnector: 'native' },
-  },
   vite: {
     build: {
       cssCodeSplit: false,

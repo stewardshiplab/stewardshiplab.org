@@ -1,15 +1,13 @@
 <script setup>
-const route = useRoute();
-const { data: post } = await useAsyncData(route.path, () =>
-  queryCollection('reports').path(route.path).first()
-);
+const route = useRoute()
+const { data: post } = await useFetch(`/api/content/reports/${route.params.id}`)
 </script>
 
 <template>
   <Post
     :post="post"
     type="report"
-    breadcrumbUrl="/reports"
-    breadcrumbText="← All reports"
+    breadcrumb-url="/reports"
+    breadcrumb-text="← All reports"
   />
 </template>

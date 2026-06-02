@@ -23,36 +23,17 @@ import LogoVmware from '~/assets/images/logos/vmware.svg'
 
 useSeoMeta({
   ogDeterminer: 'the',
-});
+})
 
-const route = useRoute();
-const { data: posts } = await useAsyncData(route.path, () =>
-  Promise.all([
-    queryCollection('tools')
-      .select('path', 'title', 'description', 'authors', 'date', 'category')
-      .order('date', 'DESC')
-      .where('featured', '=', true)
-      .all(),
-    queryCollection('reports')
-      .select('path', 'title', 'description', 'authors', 'date', 'category')
-      .order('date', 'DESC')
-      .where('featured', '=', true)
-      .all(),
-    queryCollection('ideas')
-      .select('path', 'title', 'description', 'authors', 'date', 'category')
-      .order('date', 'DESC')
-      .where('featured', '=', true)
-      .all(),
-  ]).then((results) =>
-    results.flat().sort((a, b) => b.date.localeCompare(a.date))
-  )
-);
+const { data: posts } = await useFetch('/api/content/featured')
 </script>
 
 <template>
   <div class="container">
     <section>
-      <h1 class="visually-hidden">Software Stewardship Lab</h1>
+      <h1 class="visually-hidden">
+        Software Stewardship Lab
+      </h1>
       <div class="hero">
         <h2>
           <small>A new non-profit applied research lab</small>
@@ -110,12 +91,14 @@ const { data: posts } = await useAsyncData(route.path, () =>
     <Star class="squiggle squiggle--c" />
     <Star class="squiggle squiggle--d" />
     <div class="container">
-      <h2 class="big-heading">Our Team</h2>
+      <h2 class="big-heading">
+        Our Team
+      </h2>
       <div class="members">
         <Member
           name="Vlad-Stefan Harbuz"
           title="Executive Director, Researcher"
-          imageUrl="/images/people/vlad@300px.webp"
+          image-url="/images/people/vlad@300px.webp"
           url="https://vlad.website"
         >
           <p>
@@ -131,7 +114,7 @@ const { data: posts } = await useAsyncData(route.path, () =>
         <Member
           name="Andrew Nesbitt"
           title="Non-Executive Director, Researcher"
-          imageUrl="/images/people/andrew@300px.webp"
+          image-url="/images/people/andrew@300px.webp"
           url="https://nesbitt.io"
         >
           <p>
@@ -150,7 +133,7 @@ const { data: posts } = await useAsyncData(route.path, () =>
         <Member
           name="Miranda Heath"
           title="Non-Executive Director, Researcher"
-          imageUrl="/images/people/miranda@300px.webp"
+          image-url="/images/people/miranda@300px.webp"
           url="https://mirandaheath.website"
         >
           <p>
@@ -162,7 +145,7 @@ const { data: posts } = await useAsyncData(route.path, () =>
         <Member
           name="Daniel Roe"
           title="Non-Executive Director"
-          imageUrl="/images/people/daniel@300px.webp"
+          image-url="/images/people/daniel@300px.webp"
           url="https://roe.dev"
         >
           <p>
@@ -174,7 +157,7 @@ const { data: posts } = await useAsyncData(route.path, () =>
         <Member
           name="Dawn Foster"
           title="Non-Executive Director"
-          imageUrl="/images/people/dawn@300px.webp"
+          image-url="/images/people/dawn@300px.webp"
           url="https://fastwonder.com/"
         >
           <p>
@@ -186,7 +169,7 @@ const { data: posts } = await useAsyncData(route.path, () =>
         <Member
           name="Matias Capeletto"
           title="Non-Executive Director"
-          imageUrl="/images/people/patak@300px.webp"
+          image-url="/images/people/patak@300px.webp"
           url="https://patak.cat"
         >
           <p>
@@ -202,7 +185,7 @@ const { data: posts } = await useAsyncData(route.path, () =>
         <Member
           name="Mike McQuaid"
           title="Adviser"
-          imageUrl="/images/people/mike@300px.webp"
+          image-url="/images/people/mike@300px.webp"
           url="https://mikemcquaid.com"
         >
           <p>
@@ -213,7 +196,9 @@ const { data: posts } = await useAsyncData(route.path, () =>
           </p>
         </Member>
       </div>
-      <h2 class="big-heading">Our Experience</h2>
+      <h2 class="big-heading">
+        Our Experience
+      </h2>
       <div class="logowall-group">
         <span>In leadership roles</span>
         <div class="logowall">
@@ -478,7 +463,10 @@ const { data: posts } = await useAsyncData(route.path, () =>
     <section>
       <div class="cta">
         <h2>Want to work together?</h2>
-        <NuxtLink to="/contact" class="button">Say hi<IconHandWaving class="icon" /></NuxtLink>
+        <NuxtLink
+          to="/contact"
+          class="button"
+        >Say hi<IconHandWaving class="icon" /></NuxtLink>
       </div>
     </section>
   </div>

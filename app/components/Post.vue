@@ -1,85 +1,136 @@
 <script setup lang="ts">
-import { formatDate } from '../utils/format.ts';
-import { PEOPLE, POST_CATEGORIES } from '../data/content.ts';
+import { ComarkRenderer } from '@comark/vue'
+import { formatDate } from '../utils/format.ts'
+import { PEOPLE, POST_CATEGORIES } from '../data/content.ts'
 
-const props = defineProps(['post', 'type', 'breadcrumbUrl', 'breadcrumbText']);
+const props = defineProps(['post', 'type', 'breadcrumbUrl', 'breadcrumbText'])
 
-const title = `${props.post.title} ✸ Software Stewardship Lab`;
+const title = `${props.post.frontmatter.title} ✸ Software Stewardship Lab`
 
 useSeoMeta({
   title: title,
-  description: props.post.description,
+  description: props.post.frontmatter.description,
   ogTitle: title,
-  ogDescription: props.post.description,
-  ogImage: props.post.metaImage,
-});
+  ogDescription: props.post.frontmatter.description,
+  ogImage: props.post.frontmatter.metaImage,
+})
 </script>
 
 <template>
   <div class="container post__before">
     <div>
       <NuxtLink
-       v-if="breadcrumbUrl && breadcrumbText"
+        v-if="breadcrumbUrl && breadcrumbText"
         class="plain-link"
         :to="breadcrumbUrl"
       >{{ breadcrumbText }}</NuxtLink>
     </div>
     <div class="post__labels">
-      <div class="post-label post-label--category">{{ POST_CATEGORIES[post.category].name }}</div>
-      <div class="post-label post-label--type">{{ type }}</div>
+      <div class="post-label post-label--category">
+        {{ POST_CATEGORIES[post.frontmatter.category].name }}
+      </div>
+      <div class="post-label post-label--type">
+        {{ type }}
+      </div>
     </div>
   </div>
   <div class="container">
-    <h1 class="page-title">{{ post.title }}</h1>
+    <h1 class="page-title">
+      {{ post.frontmatter.title }}
+    </h1>
     <div
+      v-if="post.frontmatter.authors || post.frontmatter.editor || post.frontmatter.date || post.frontmatter.location || (post.frontmatter.canonicalWebsiteName && post.frontmatter.canonicalUrl) || post.frontmatter.venue"
       class="post__meta"
-      v-if="post.authors || post.editor || post.date || post.location || (post.canonicalWebsiteName && post.canonicalUrl) || post.venue"
     >
-      <template v-if="post.authors">
-        <div class="post__meta-item" v-for="author in post.authors">
-          <b v-if="post.authors.length == 1">Author</b>
-          <b v-if="post.authors.length > 1">Co-author</b>
+      <template v-if="post.frontmatter.authors">
+        <div
+          v-for="author in post.frontmatter.authors"
+          class="post__meta-item"
+        >
+          <b v-if="post.frontmatter.authors.length == 1">Author</b>
+          <b v-if="post.frontmatter.authors.length > 1">Co-author</b>
           <div class="post__person">
-            <img :src="PEOPLE[author].image" :alt="'A portrait of ' + PEOPLE[author].name">
+            <img
+              :src="PEOPLE[author].image"
+              :alt="'A portrait of ' + PEOPLE[author].name"
+            >
             <span>{{ PEOPLE[author].name }}</span>
           </div>
         </div>
       </template>
-      <div class="post__meta-item" v-if="post.editor">
+      <div
+        v-if="post.frontmatter.editor"
+        class="post__meta-item"
+      >
         <b>Editor</b>
         <div class="post__person">
-          <img v-if="post.editorImage" :src="post.editorImage" :alt="'A portrait of ' + post.editor">
-          <span>{{ post.editor }}</span>
+          <img
+            v-if="post.frontmatter.editorImage"
+            :src="post.frontmatter.editorImage"
+            :alt="'A portrait of ' + post.frontmatter.editor"
+          >
+          <span>{{ post.frontmatter.editor }}</span>
         </div>
       </div>
-      <div class="post__meta-item" v-if="post.date">
+      <div
+        v-if="post.frontmatter.date"
+        class="post__meta-item"
+      >
         <b>Date</b>
-        <span>{{ formatDate(post.date) }}</span>
+        <span>{{ formatDate(post.frontmatter.date.split(' ')[0]) }}</span>
       </div>
-      <div class="post__meta-item" v-if="post.location">
+      <div
+        v-if="post.frontmatter.location"
+        class="post__meta-item"
+      >
         <b>Location</b>
-        <span>{{ post.location }}</span>
+        <span>{{ post.frontmatter.location }}</span>
       </div>
-      <div class="post__meta-item" v-if="post.venue">
+      <div
+        v-if="post.frontmatter.venue"
+        class="post__meta-item"
+      >
         <b>Talk given at</b>
-        <a target="_blank" :href="post.venueUrl" v-if="post.venueUrl">{{ post.venue }}</a>
-        <span v-if="!post.venueUrl">{{ post.venue }}</span>
+        <a
+          v-if="post.frontmatter.venueUrl"
+          target="_blank"
+          :href="post.frontmatter.venueUrl"
+        >{{ post.frontmatter.venue }}</a>
+        <span v-if="!post.frontmatter.venueUrl">{{ post.frontmatter.venue }}</span>
       </div>
-      <div class="post__meta-item" v-if="post.canonicalWebsiteName && post.canonicalUrl">
+      <div
+        v-if="post.frontmatter.canonicalWebsiteName && post.frontmatter.canonicalUrl"
+        class="post__meta-item"
+      >
         <b>Original post</b>
-        <a target="_blank" :href="post.canonicalUrl">on {{ post.canonicalWebsiteName }}</a>
+        <a
+          target="_blank"
+          :href="post.frontmatter.canonicalUrl"
+        >on {{ post.frontmatter.canonicalWebsiteName }}</a>
       </div>
     </div>
-    <figure class="post__image" v-if="post.image">
-      <img :src="post.image" :alt="post.imageAlt">
+    <figure
+      v-if="post.frontmatter.image"
+      class="post__image"
+    >
+      <img
+        :src="post.frontmatter.image"
+        :alt="post.frontmatter.imageAlt"
+      >
     </figure>
   </div>
-  <div :class="{ 'container': !post.fullWidthLayout }">
-    <ContentRenderer :value="post" class="prose" />
+  <div :class="{ container: !post.frontmatter.fullWidthLayout }">
+    <ComarkRenderer
+      :tree="post"
+      class="prose"
+    />
   </div>
   <div class="container post__after">
     <div v-if="breadcrumbUrl && breadcrumbText">
-      <NuxtLink class="plain-link" :to="breadcrumbUrl">{{ breadcrumbText }}</NuxtLink>
+      <NuxtLink
+        class="plain-link"
+        :to="breadcrumbUrl"
+      >{{ breadcrumbText }}</NuxtLink>
     </div>
   </div>
 </template>
