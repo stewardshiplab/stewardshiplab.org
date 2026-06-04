@@ -51,6 +51,9 @@ const toggleNav = debounceLeading(() => {
             <NuxtLink class="plain-link" to="/media">
               Media<IconCaretRightBold class="icon icon--s" />
             </NuxtLink>
+            <NuxtLink class="plain-link sponsor-button" to="/sponsor">
+              Sponsor<IconCaretRightBold class="icon icon--s" />
+            </NuxtLink>
             <NuxtLink class="plain-link" to="/contact">
               <IconHandWaving class="icon" />
             </NuxtLink>
@@ -72,6 +75,9 @@ const toggleNav = debounceLeading(() => {
             </NuxtLink>
             <NuxtLink @click="closeNav" class="plain-link" to="/media">
               <div class="mobile-nav__name">Media</div><IconCaretRightBold class="icon icon--s" />
+            </NuxtLink>
+            <NuxtLink @click="closeNav" class="plain-link" to="/sponsor">
+              <div class="mobile-nav__name">Sponsor</div><IconCaretRightBold class="icon icon--s" />
             </NuxtLink>
             <NuxtLink @click="closeNav" class="plain-link" to="/contact">
               <div class="mobile-nav__name">Contact<IconHandWaving class="icon icon--white" /></div>
@@ -157,10 +163,26 @@ header {
     @media (max-width: 800px) {
       display: none;
     }
+    .sponsor-button {
+      border: 2px solid var(--color-blue);
+      background: transparent;
+      &:hover {
+        color: white;
+        background: var(--color-blue);
+        .icon.icon--s {
+          path {
+            fill: white;
+            stroke: white;
+          }
+        }
+      }
+    }
     a {
       display: flex;
       align-items: center;
-      padding: 10px 15px;
+      padding-inline: 12px;
+      padding-block-start: 6px;
+      padding-block-end: 8px;
       font-size: var(--font-size-s);
       line-height: var(--line-height-s);
       font-variant-caps: small-caps;
@@ -169,7 +191,6 @@ header {
       font-weight: 500;
       color: var(--color-blue);
       border-radius: var(--border-radius-s);
-      transition: background-color 200ms;
       .icon.icon--s {
         position: relative;
         top: 1px;

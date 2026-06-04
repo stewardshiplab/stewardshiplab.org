@@ -19,7 +19,9 @@ import IconDiscord from '~/assets/images/icons/discord.svg'
                 to the global Open Source infrastructure we all depend on.
               </p>
               <p>
-                Reach out to Vlad to schedule a call.
+                Learn more on our
+                <a href="/sponsor">sponsor</a>
+                page, then feel free to reach out to Vlad to schedule a call.
               </p>
             </div>
             <div class="contact-person">
@@ -33,6 +35,7 @@ import IconDiscord from '~/assets/images/icons/discord.svg'
                 <div class="contact-person__head">
                   <strong>Vlad-Stefan Harbuz</strong>
                   <span>Executive Director</span>
+                  <span>(UK timezone)</span>
                 </div>
                 <div class="contact-method-set">
                   <a href="mailto:vlad@vlad.website" class="contact-method plain-link">
@@ -143,7 +146,10 @@ import IconDiscord from '~/assets/images/icons/discord.svg'
               font-weight: 500;
             }
             span {
+              display: block;
               color: var(--color-text-pale);
+              font-size: var(--font-size-xs);
+              line-height: var(--line-height-xs);
             }
           }
         }

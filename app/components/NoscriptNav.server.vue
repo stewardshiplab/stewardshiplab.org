@@ -18,6 +18,9 @@ import IconHandWaving from '~/assets/images/icons/phosphor/hand-waving.svg'
       <a class="plain-link" href="/media">
         <div class="mobile-nav__name">Media</div><IconCaretRightBold class="icon icon--s" />
       </a>
+      <a class="plain-link" href="/sponsor">
+        <div class="mobile-nav__name">Sponsor</div><IconCaretRightBold class="icon icon--s" />
+      </a>
       <a class="plain-link" href="/contact">
         <div class="mobile-nav__name">Contact<IconHandWaving class="icon icon--white" /></div>
         <IconCaretRightBold class="icon icon--s" />

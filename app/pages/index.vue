@@ -422,59 +422,71 @@ const { data: posts } = await useAsyncData(route.path, () =>
         Values
       </h2>
       <div class="values">
-        <div class="value">
-          <h3 class="smcp">
+        <div class="labelbox">
+          <h3>
             Public good
           </h3>
-          <p>
-            Our work must provide a clear benefit to the public; and not put them at disproportionate risk of
-            harm, eg via drastic environmental consequences or monopolies.
-          </p>
+          <div>
+            <p>
+              Our work must provide a clear benefit to the public; and not put them at disproportionate risk of
+              harm, eg via drastic environmental consequences or monopolies.
+            </p>
+          </div>
         </div>
-        <div class="value">
-          <h3 class="smcp">
+        <div class="labelbox">
+          <h3>
             Public access
           </h3>
-          <p>
-            All our research outputs are accessible and usable by all. This means Open Source code, open data, and open
-            access research papers.
-          </p>
+          <div>
+            <p>
+              All our research outputs are accessible and usable by all. This means Open Source code, open data, and open
+              access research papers.
+            </p>
+          </div>
         </div>
-        <div class="value">
-          <h3 class="smcp">
+        <div class="labelbox">
+          <h3>
             Systemic improvements
           </h3>
-          <p>
-            We aim for widely-applicable systemic solutions, not just fixes for particular technologies, so developers
-            don't have to shape themselves to fit a bad system.
-          </p>
+          <div>
+            <p>
+              We aim for widely-applicable systemic solutions, not just fixes for particular technologies, so developers
+              don't have to shape themselves to fit a bad system.
+            </p>
+          </div>
         </div>
-        <div class="value">
-          <h3 class="smcp">
+        <div class="labelbox">
+          <h3>
             Interdisciplinarity
           </h3>
-          <p>
-            Our work addresses the social, ethical and policy dimensions of Open Source, like responsible governance,
-            good working conditions and respect.
-          </p>
+          <div>
+            <p>
+              Our work addresses the social, ethical and policy dimensions of Open Source, like responsible governance,
+              good working conditions and respect.
+            </p>
+          </div>
         </div>
-        <div class="value">
-          <h3 class="smcp">
+        <div class="labelbox">
+          <h3>
             Decentralisation
           </h3>
-          <p>
-            We promote sharing and distributing power over technology. We want users to be able to shape the tech they
-            use so that it works in their best interests.
-          </p>
+          <div>
+            <p>
+              We promote sharing and distributing power over technology. We want users to be able to shape the tech they
+              use so that it works in their best interests.
+            </p>
+          </div>
         </div>
-        <div class="value">
-          <h3 class="smcp">
+        <div class="labelbox">
+          <h3>
             Interdependence
           </h3>
-          <p>
-            We aim to advance public knowledge about how the tech we have today is made possible by webs of
-            interdependence where developers collaborate openly.
-          </p>
+          <div>
+            <p>
+              We aim to advance public knowledge about how the tech we have today is made possible by webs of
+              interdependence where developers collaborate openly.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -633,29 +645,43 @@ const { data: posts } = await useAsyncData(route.path, () =>
   row-gap: 30px;
   column-gap: 20px;
 }
-.value {
+.labelbox {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-radius: var(--border-radius-l);
-  background: var(--color-beige-xpale);
+  align-items: flex-start;
   h3 {
+    display: inline-block;
+    position: relative;
+    top: 10px;
     margin: 0;
-    padding: 15px;
+    padding: 10px 15px;
     font-family: var(--font-family-sans);
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
     font-weight: 500;
+    font-variant-caps: small-caps;
+    font-feature-settings: "smcp";
+    text-transform: lowercase;
     border-top-left-radius: var(--border-radius-l);
     border-top-right-radius: var(--border-radius-l);
     background: var(--color-blue);
     color: white;
   }
-  p {
+  & > div {
+    flex: 1;
     margin: 0;
     padding: 15px;
+    padding-top: calc(15px + 10px);
+    padding-right: 80px;
     font-size: var(--font-size-s);
     line-height: var(--line-height-s);
+    border-radius: var(--border-radius-l);
+    background:
+      url(/images/star-for-bg.svg),
+      var(--color-beige-xpale);
+    background-repeat: no-repeat;
+    background-position: 115% 190%;
+    background-size: 110px 110px;
   }
 }
 </style>
