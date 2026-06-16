@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     'nuxt-svgo',
     '@nuxt/content',
+    'nuxt-og-image',
   ],
   features: {
     inlineStyles: false,
@@ -78,5 +79,18 @@ export default defineNuxtConfig({
   },
   htmlValidator: {
     failOnError: true,
+  },
+  /* From nuxt-og-image: https://nuxtseo.com/docs/og-image/getting-started/installation#configuration */
+  site: {
+    url: 'https://stewardshiplab.org',
+    name: 'Software Stewardship Lab',
+  },
+  /* From nuxt-og-image: https://nuxtseo.com/docs/og-image/api/config */
+  ogImage: {
+    zeroRuntime: true,
+    defaults: {
+      width: 1200,
+      height: 630,
+    },
   },
 });

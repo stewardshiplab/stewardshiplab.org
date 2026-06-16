@@ -20,6 +20,8 @@ let seoMeta = {
 
 if (props.post.metaImage) {
   seoMeta.ogImage = props.post.metaImage;
+} else {
+  defineOgImage('Post', { title: props.post.title });
 }
 
 useSeoMeta(seoMeta);
