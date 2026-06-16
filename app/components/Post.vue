@@ -1,18 +1,36 @@
 <script setup lang="ts">
-import { formatDate } from '../utils/format.ts';
-import { PEOPLE, POST_CATEGORIES } from '../data/content.ts';
+import { formatDate } from '../utils/format.ts'
+import { PEOPLE, POST_CATEGORIES } from '../data/content.ts'
 
-const props = defineProps(['post', 'type', 'breadcrumbUrl', 'breadcrumbText']);
+const props = defineProps(['post', 'type', 'breadcrumbUrl', 'breadcrumbText'])
 
-const title = `${props.post.title} ✸ Software Stewardship Lab`;
+const title = `${props.post.title} ✸ Software Stewardship Lab`
+const ogImageAlt = `OpenGraph image for “${props.post.title}”`
 
 useSeoMeta({
   title: title,
   description: props.post.description,
   ogTitle: title,
   ogDescription: props.post.description,
-  ogImage: props.post.metaImage,
-});
+})
+
+if (props.post.metaImage) {
+  defineOgImage('Post', {}, {
+    url: props.post.metaImage,
+    width: 1200,
+    height: 630,
+    alt: ogImageAlt,
+  })
+}
+else {
+  defineOgImage('Post', {
+    title: props.post.title,
+    category: POST_CATEGORIES[props.post.category].name,
+    type: props.type,
+  }, {
+    alt: ogImageAlt,
+  })
+}
 </script>
 
 <template>
