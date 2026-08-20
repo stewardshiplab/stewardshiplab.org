@@ -40,11 +40,11 @@ const route = useRoute();
             </NuxtLink>
           </div>
           <nav class="desktop-nav">
+            <NuxtLink class="plain-link" to="/projects">
+              Projects<IconCaretRightBold class="icon icon--s" />
+            </NuxtLink>
             <NuxtLink class="plain-link" to="/reports">
               Reports<IconCaretRightBold class="icon icon--s" />
-            </NuxtLink>
-            <NuxtLink class="plain-link" to="/tools">
-              Tools<IconCaretRightBold class="icon icon--s" />
             </NuxtLink>
             <NuxtLink class="plain-link" to="/ideas">
               Ideas<IconCaretRightBold class="icon icon--s" />
