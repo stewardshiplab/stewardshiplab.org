@@ -21,11 +21,6 @@ useSeoMeta({
       </p>
     </div>
   </section>
-  <section>
-    <div class="container">
-      <h2 class="sechead">ecosyste.ms</h2>
-    </div>
-  </section>
   <section class="observatory" id="observatory">
     <div class="observatory-canvas-container">
       <ClientOnly>
@@ -106,7 +101,59 @@ useSeoMeta({
   </section>
   <section>
     <div class="container">
+      <h2 class="sechead">ecosyste.ms</h2>
+    </div>
+  </section>
+  <section>
+    <div class="container">
       <h2 class="sechead">Burnout in Open Source</h2>
+      <p>
+        Open Source is made possible by the voluntary labour of thousands of talented software developers. However,
+        working conditions are increasingly driving Open Source maintainers towards burnout.
+      </p>
+      <p>
+        Burnout is a serious risk to maintainers' health, and the health of the projects they maintain, increasing the
+        chance of bugs,
+        <a
+          href="https://www.technologyreview.com/2021/12/17/1042692/log4j-internet-open-source-hacking/"
+          target="_blank"
+        >missed exploits</a>,
+        and
+        <a
+          href="https://nesbitt.io/2026/05/19/dumb-ways-for-an-open-source-project-to-die.html"
+          target="_blank"
+        >project abandonment</a>.
+        This threatens the security and stability of everyone
+        who depends on the project upstream. In short: burnout in Open Source affects everyone.
+      </p>
+      <p>
+        We have put together a portfolio of research to better understand burnout in Open Source, its causes and how to
+        address them. This portfolio is tailored to fill gaps in our understanding of burnout in Open Source
+      </p>
+      <h3>Burnout in Open Source</h3>
+      <p>
+        Our
+        <a
+          href="https://stewardshiplab.org/reports/burnout-in-open-source-a-structural-problem-we-can-fix-together/"
+        >report</a>
+        on the system-level causes of burnout in Open Source identifies difficulty getting paid, large and unrewarding
+        workloads, heavy responsibilities and toxic community behaviour as causes, and considers the changes we need to
+        make as a developer community to address them.
+      </p>
+      <h3>The Impact of AI</h3>
+      <p>
+        From increasing PR volume to decreasing trust in collaborators, the explosion of AI use in software development
+        poses new and immediate threats to the health of Open Source maintainers. We are researching the effects of AI
+        coding on Open Source communities and how to protect Open Source maintainers from further risk or burnout
+        resulting from increased AI use.
+      </p>
+      <h3>Burnout over Time</h3>
+      <p>
+        In order to understand the causes and solutions to burnout in Open Source, and to convince those with the power
+        to make a difference that it is an immediate problem, we need reliable data on burnout rates over time. We
+        aspire to produce annual, independent reports on burnout in Open Source, and how it is impacting maintainers and
+        the projects that they steward year-on-year.
+      </p>
     </div>
   </section>
   <section>
