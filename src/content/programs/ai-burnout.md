@@ -9,11 +9,7 @@ color: "var(--color-green)"
 order: 2
 ---
 
-In Dec 2026, Miranda Heath released a report on how AI coding affects the mental health and well-being of
-developers. She highlighted how developers are spending less time writing code, and more time reviewing AI
-generated code. Less time collaborating with colleagues, and more time wrangling agents. There is pressure to
-work at greater speeds, and to respond to greater volumes of PRs. These changes are exacerbating existing risk
-factors for burnout, and leaving many feeling like their identity and craft as a programmer are under threat.
+Miranda Heath has been working on a report on how AI coding affects the mental health and well-being of developers (due for release Dec 2026). The report highlights how developers are spending less time writing code, and more time reviewing AI generated code. Less time collaborating with colleagues, and more time wrangling agents. There is pressure to work at greater speeds, and to respond to greater volumes of PRs. These changes are exacerbating existing risk factors for burnout, and leaving many feeling like their identity and craft as a programmer are under threat.
 
 Miranda would like to extend this work by investigating the impact of AI specifically on people working in
 Open Source. She will conduct in-depth interviews with a diverse sample of people working in Open Source, to
