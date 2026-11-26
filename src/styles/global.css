@@ -972,15 +972,15 @@ section {
   border: 1px solid hsl(from var(--programColor) h s calc(l * 0.8) / 0.15);
   border-radius: var(--border-radius-s);
   background: var(--color-beige);
-  @media (max-width: 800px) {
-    padding: 15px;
-  }
   .program__body {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px 30px;
     background: var(--color-beige-bright);
+    @media (max-width: 800px) {
+      padding-inline: 20px;
+    }
   }
   .program__head {
     display: flex;
@@ -992,6 +992,7 @@ section {
     @media (max-width: 800px) {
       flex-direction: column;
       gap: 15px;
+      padding-inline: 20px;
       margin-bottom: 10px;
     }
     .program__headtext {
@@ -1012,9 +1013,6 @@ section {
       .program__aim {
         font-size: var(--font-size-s);
         line-height: var(--line-height-s);
-        @media (max-width: 800px) {
-          margin-top: 10px;
-        }
       }
     }
   }
