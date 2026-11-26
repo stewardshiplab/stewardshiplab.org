@@ -77,17 +77,28 @@
   --color-blue: #1c35bc;
   --color-blue-light: #3a4de6;
   --color-blue-dark: #0c25ac;
+  --color-blue-sat: hsl(from var(--color-blue) calc(h - 20) calc(s * 4.0) calc(l * 0.5));
+  --color-green: color(srgb -0.0603029 0.374421 0.114078);
 
   --color-purple: #6e1d7a;
   --color-gold: #f2cc00;
 
   --color-light-blue-pale: #f8f8ff;
 
-  --color-green: #135b4e;
   --color-nyu: #41108d;
   --color-ecosystems-purple: #5c5ccf;
+  --color-ecosystems-purple-dark: hsl(from var(--color-ecosystems-purple) h calc(s * 1.0) calc(l * 0.5));
+  --color-pledge: #2dde74;
+  --color-pledge-dark: hsl(from var(--color-pledge) h calc(s) calc(l * 0.65));
+  --color-program-default: var(--color-blue-sat);
 
   /* Not currently used */
+  --color-pledge-tertiary: #ffd00e;
+  --color-pledge-pink: #ff70bc;
+  --color-pledge-pink-dark: hsl(from var(--color-pledge-pink) h calc(s * 0.4) calc(l * 0.6));
+  --color-ecosystems-red: #c75467;
+  --color-ecosystems-green: #24af69;
+  --color-port: hsl(from var(--color-beige-sat) calc(h - 20) calc(s * 0.5) calc(l * 0.4));
   --color-green-dark: #192d28;
   --color-light-blue: #e2d9df;
 
@@ -96,6 +107,7 @@
   --font-size-s: 17px;
   --font-size-m: 19px;
   --font-size-l: 25px;
+  --font-size-l-sans: 24px; /* only for Montreuil */
   --font-size-xl: 40px;
   --font-size-xxl: 50px;
 
@@ -684,6 +696,19 @@ button.button, a.button {
       }
     }
   }
+  &.button--inverted {
+    color: white;
+    border-color: white;
+    &:hover, &.button--active, &[data-poppy-active] {
+      background: white;
+      color: var(--color-blue);
+      .icon {
+        path {
+          fill: var(--color-blue);
+        }
+      }
+    }
+  }
   &.button--s {
     padding: 5px 8px;
     font-size: var(--font-size-xs);
@@ -774,6 +799,9 @@ button.plain-button {
   margin-top: 60px;
   margin-bottom: 80px;
   text-wrap: balance;
+  &:last-child {
+    margin-bottom: 0;
+  }
   h2, h3 {
     margin: 0;
   }
@@ -902,9 +930,11 @@ section {
   @media (max-width: 800px) {
     padding-block: 100px;
   }
-  .bacta-head {
+  & > div {
     position: relative;
     z-index: 10;
+  }
+  .bacta-head {
     h1, h2, p {
       color: white;
       text-shadow:
@@ -932,22 +962,33 @@ section {
     right: 0;
     z-index: 5;
   }
+  .cta {
+    margin-top: 20px;
+  }
 }
 
 .program {
-  padding: 30px;
-  background: var(--color-beige-bright);
-  border: 1px solid var(--color-beige-pale);
+  overflow: hidden;
+  border: 1px solid hsl(from var(--programColor) h s calc(l * 0.8) / 0.15);
   border-radius: var(--border-radius-s);
+  background: var(--color-beige);
   @media (max-width: 800px) {
     padding: 15px;
+  }
+  .program__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 30px;
+    background: var(--color-beige-bright);
   }
   .program__head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 20px;
+    padding: 20px 30px;
+    background: hsl(from var(--programColor) h calc(s * 0.4) calc(l * 2.0) / 0.03);
     @media (max-width: 800px) {
       flex-direction: column;
       gap: 15px;
@@ -955,32 +996,43 @@ section {
     }
     .program__headtext {
       flex: 1 1;
-      h2 {
-        margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      &, h2 {
         color: var(--programColor);
       }
+      h2 {
+        margin: 0;
+        font-family: var(--font-family-sans);
+        font-size: var(--font-size-l-sans);
+        line-height: var(--line-height-l);
+        font-weight: 500;
+      }
       .program__aim {
-        margin-top: 5px;
-        color: var(--programColor);
+        font-size: var(--font-size-s);
+        line-height: var(--line-height-s);
         @media (max-width: 800px) {
           margin-top: 10px;
         }
       }
     }
+  }
+  .program__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     a {
       display: flex;
       align-items: center;
       gap: 3px;
-      padding: 5px 8px;
       background: var(--color-beige);
+      border: 1px solid hsl(from var(--programColor) h s calc(l * 0.8) / 0.15);
       border-radius: var(--border-radius-s);
       font-family: var(--font-family-sans);
       font-variant-caps: small-caps;
       font-feature-settings: "smcp";
       text-transform: lowercase;
-      text-decoration: none;
-      font-size: var(--font-size-s);
-      line-height: var(--line-height-s);
       background: var(--programColor);
       color: white;
       &:hover {
@@ -996,13 +1048,6 @@ section {
   }
   h3, h4 {
     color: var(--programColor);
-  }
-  .program__funding {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
   .program__totals {
     margin-bottom: 7px;
@@ -1078,7 +1123,6 @@ section {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 15px;
     font-size: var(--font-size-xs);
     line-height: var(--line-height-xs);
   }

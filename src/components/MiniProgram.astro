@@ -31,40 +31,38 @@ const percentFunded = fundedAmount / targetAmount * 100;
       <div class="program__aim">{aim}</div>
     </div>
   </div>
-  <div class="program__funding">
-    <div class="program__totals">
-      <div>
-        <i>Funded</i>
-        {currency == "gbp" && (
-        <span>{formatGbpAmount(fundedAmount)}</span>
-        )}
-        {currency == "usd" && (
-        <span>{formatUsdAmount(fundedAmount)}</span>
-        <span class="conversion">
-          ({formatGbpAmount(fundedAmount * oneUsdAsGbp)})
-        </span>
-        )}
+  <div class="program__body">
+    <div class="program__funding">
+      <div class="program__totals">
+        <div>
+          <i>Funded</i>
+          {currency == "gbp" && (
+          <span>{formatGbpAmount(fundedAmount)}</span>
+          )}
+          {currency == "usd" && (
+          <span>{formatUsdAmount(fundedAmount)}</span>
+          <span class="conversion">
+            ({formatGbpAmount(fundedAmount * oneUsdAsGbp)})
+          </span>
+          )}
+        </div>
+        <div class="program__goal">
+          <i>Goal</i>
+          {currency == "gbp" && (
+          <span>{formatGbpAmount(targetAmount)}</span>
+          )}
+          {currency == "usd" && (
+          <span class="conversion">
+            ({formatGbpAmount(targetAmount * oneUsdAsGbp)})
+          </span>
+          <span>{formatUsdAmount(targetAmount)}</span>
+          )}
+        </div>
       </div>
-      <div class="program__goal">
-        <i>Goal</i>
-        {currency == "gbp" && (
-        <span>{formatGbpAmount(targetAmount)}</span>
-        )}
-        {currency == "usd" && (
-        <span class="conversion">
-          ({formatGbpAmount(targetAmount * oneUsdAsGbp)})
-        </span>
-        <span>{formatUsdAmount(targetAmount)}</span>
-        )}
-      </div>
-    </div>
-    <div class="program__bar" style={`--percent-funded: ${percentFunded}%`}>
+      <div class="program__bar" style={`--percent-funded: ${percentFunded}%`}></div>
     </div>
   </div>
 </a>
 
 <style define:vars={{ programColor: color }}>
-.program {
-  --programColor: var(--color-blue);
-}
 </style>

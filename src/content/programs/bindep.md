@@ -5,8 +5,8 @@ targetAmount: 69120
 ocUrl: "https://opencollective.com/stewardshiplab/projects/bindep-python"
 currency: "usd"
 aim: "Improving security by bringing hidden binary dependency relationships to light."
-color: "var(--color-blue)"
-order: 3
+color: "var(--color-program-default)"
+order: 4
 resources:
 - name: "Funding proposal"
   url: "https://static.stewardshiplab.org/proposal.bindep.pdf"

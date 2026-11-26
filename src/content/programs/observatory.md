@@ -5,7 +5,7 @@ targetAmount: 133000
 ocUrl: "https://opencollective.com/stewardshiplab/projects/open-infrastructure-obs"
 currency: "gbp"
 aim: "Empowering users, funders and researchers to identify critical Open Source projects at risk of being unmaintained."
-color: "var(--color-blue)"
+color: "var(--color-program-default)"
 order: 6
 ---
 

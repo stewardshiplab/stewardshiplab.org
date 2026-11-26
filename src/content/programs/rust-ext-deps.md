@@ -5,7 +5,7 @@ targetAmount: 214560
 ocUrl: "https://opencollective.com/stewardshiplab/projects/rust-ext-deps"
 currency: "usd"
 aim: "Improving security in the Rust package management ecosystem by declaratively recording non-Rust dependencies."
-color: "var(--color-blue)"
+color: "var(--color-program-default)"
 order: 5
 resources:
 - name: "Project pitch"

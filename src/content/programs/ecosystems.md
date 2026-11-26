@@ -5,8 +5,8 @@ targetAmount: 240000
 ocUrl: "https://opencollective.com/ecosystems/projects/ecosystem-growth"
 currency: "usd"
 aim: "Providing world-class Open Source intelligence tooling to governments, researchers and companies worldwide."
-color: "var(--color-ecosystems-purple)"
-order: 4
+color: "var(--color-ecosystems-purple-dark)"
+order: 3
 resources:
 - name: "ecosyste.ms website"
   url: "https://ecosyste.ms"
