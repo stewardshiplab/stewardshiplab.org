@@ -2,7 +2,7 @@
 title: "Open Source Pledge"
 fundedAmount: 39000
 targetAmount: 39000
-ocUrl: "https://opencollective.com/stewardshiplab/projects/nyu-nsoc"
+ocUrl: "https://opencollective.com/stewardshiplab/projects/open-source-pledge"
 currency: "usd"
 aim: "Raising money for the world's keystone Open Source maintainers."
 color: "var(--color-pledge-dark)"
@@ -21,5 +21,6 @@ software they depend on. We're working to correct the dramatic underfunding of O
 burnout][burnout] and serious security issues on a [global scale][pledge-phil]. We have raised \$9,780,672 for Open
 Source maintainers.
 
-We never touch any of this money, which goes directly to maintainers. This means that we rely on sponsorships to be able
-to work on the Pledge. With your help, we can do even more for the maintainers that keep the internet going.
+The Stewardship Lab runs the Pledge, but we never touch any of the money we raise, which goes directly to maintainers.
+This means that we rely on sponsorships to be able to work on the Pledge. With your help, we can do even more for the
+maintainers that keep the internet going.

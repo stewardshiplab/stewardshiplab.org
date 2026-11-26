@@ -89,7 +89,7 @@
   --color-ecosystems-purple: #5c5ccf;
   --color-ecosystems-purple-dark: hsl(from var(--color-ecosystems-purple) h calc(s * 1.0) calc(l * 0.5));
   --color-pledge: #2dde74;
-  --color-pledge-dark: hsl(from var(--color-pledge) h calc(s) calc(l * 0.65));
+  --color-pledge-dark: hsl(from var(--color-pledge) h calc(s) calc(l * 0.60));
   --color-program-default: var(--color-blue-sat);
 
   /* Not currently used */
